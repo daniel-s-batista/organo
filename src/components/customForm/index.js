@@ -5,29 +5,23 @@ import Dropdown from '../dropdown';
 import CustomButton from '../customButton';
 
 const CustomForm = (props) => {
-    const teams = [
-        "Programação",
-        "Front-End",
-        "Data Science",
-        "Devops",
-        "UX e Design",
-        "Mobile",
-        "Inovação e Gestão"
-    ];
-
     const [name, setName] = useState("");
     const [role, setRole] = useState("");
     const [image, setImage] = useState("");
-    const [team, setTeam] = useState(teams[0]);
+    const [team, setTeam] = useState(props.teams[0]);
     
     const formSubmit = (event) => {
         event.preventDefault();
         props.onMemberRegistered({
-            name,
-            role,
-            image,
-            team
+            name: name,
+            role: role,
+            image: image,
+            team: team
         });
+        setName("");
+        setRole("");
+        setImage("");
+        setTeam("");
     }
 
     return (
@@ -55,7 +49,7 @@ const CustomForm = (props) => {
                            value={image}
                            setter={(image) => setImage(image)}
                            required={true} />
-                <Dropdown items={teams}
+                <Dropdown items={props.teams}
                           label="Times"
                           value={team}
                           setter={(team) => setTeam(team)}

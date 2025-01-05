@@ -1,0 +1,20 @@
+.team {
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 37px;
+    text-align: center;
+    & h3 {
+        display: inline-block;
+        padding-bottom: 8px;
+        font-size: 32px;
+        border-bottom: 4px solid;
+    }
+    & .memberGroup {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 24px;
+        margin-top: 32px;
+    }
+}
+

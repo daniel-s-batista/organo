@@ -1,0 +1,30 @@
+.footer {
+    width: 100%;
+    height: 213px;
+    background-image: url("../../../public/images/fundo.png");
+    background-color: #6278F7;
+    background-size: cover;
+
+    & section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 162px;
+
+        & .social-media {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 162px;
+        }
+
+        & h6 {
+            font-family: "Montserrat";
+            font-size: 20px;
+            font-weight: 500;
+            color: #FFFFFF;
+        }
+    }
+}
