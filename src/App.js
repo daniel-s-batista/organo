@@ -53,15 +53,13 @@ function App() {
         <div className="App">
             <Banner />
 
-            <main>
-                <CustomForm teams={teams.map((team) => team.name)}
-                            onMemberRegistered={(member) => addMember(member)} />
-                {teams.map((team) => (<Team key={team.name}
-                                            name={team.name}
-                                            primaryColor={team.primaryColor}
-                                            secondaryColor={team.secondaryColor}
-                                            members={members.filter((member) => member.team === team.name)} />))}
-            </main>
+            <CustomForm teams={teams.map((team) => team.name)}
+                        onMemberRegistered={(member) => addMember(member)} />
+            {teams.map((team) => (<Team key={team.name}
+                                        name={team.name}
+                                        primaryColor={team.primaryColor}
+                                        secondaryColor={team.secondaryColor}
+                                        members={members.filter((member) => member.team === team.name)} />))}
 
             <CustomFooter />
         </div>

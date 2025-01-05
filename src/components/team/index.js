@@ -17,7 +17,8 @@ const Team = (props) => {
                                                        name={member.name}
                                                        role={member.role}
                                                        image={member.image}
-                                                       team={member.team} />)}
+                                                       team={member.team}
+                                                       bgcolor={props.primaryColor} />)}
             </div>
         </section>
         :
