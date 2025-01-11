@@ -49,6 +49,10 @@ function App() {
         setMembers([...members, member]);
     }
 
+    function deleteMember(member) {
+        console.log("A");
+    }
+
     return (
         <div className="App">
             <Banner />
@@ -59,7 +63,8 @@ function App() {
                                         name={team.name}
                                         primaryColor={team.primaryColor}
                                         secondaryColor={team.secondaryColor}
-                                        members={members.filter((member) => member.team === team.name)} />))}
+                                        members={members.filter((member) => member.team === team.name)}
+                                        onDeleteMember={deleteMember} />))}
 
             <CustomFooter />
         </div>
