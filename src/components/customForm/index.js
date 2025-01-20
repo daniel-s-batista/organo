@@ -3,6 +3,7 @@ import './customForm.css';
 import TextField from '../textField';
 import Dropdown from '../dropdown';
 import CustomButton from '../customButton';
+import { v4 as uuid } from 'uuid'; 
 
 const CustomForm = (props) => {
     const [name, setName] = useState("");
@@ -10,24 +11,38 @@ const CustomForm = (props) => {
     const [image, setImage] = useState("");
     const [team, setTeam] = useState(props.teams[0]);
     
-    const formSubmit = (event) => {
+    const formSubmitMember = (event) => {
         event.preventDefault();
         props.onMemberRegistered({
             name: name,
             role: role,
             image: image,
-            team: team
+            team: team,
+            id: uuid()
         });
         setName("");
         setRole("");
         setImage("");
-        setTeam("");
+    }
+
+    const [teamName, setTeamName] = useState("");
+    const [teamColor, setTeamColor] = useState("");
+
+    const formSubmitTeam = (event) => {
+        event.preventDefault();
+        props.onTeamRegistered({
+            name: teamName,
+            color: teamColor,
+            id: uuid()
+        });
+        setTeamName("");
+        setTeamColor("");
     }
 
     return (
         <section className="custom-form">
-            <h2>Preencha os dados para criar o card do colaborador.</h2>
-            <form onSubmit={formSubmit}>
+            <form onSubmit={formSubmitMember}>
+                <h2>Preencha os dados para criar o card do colaborador.</h2>
                 <TextField label="Nome" 
                            id="name"
                            name="name"
@@ -55,6 +70,25 @@ const CustomForm = (props) => {
                           setter={(team) => setTeam(team)}
                           required={true} />
                 <CustomButton>Criar card</CustomButton>
+            </form>
+
+            <form onSubmit={formSubmitTeam}>
+                <h2>Preencha os dados para criar um novo time.</h2>
+                <TextField label="Nome" 
+                           id="name"
+                           name="name"
+                           placeholder="Digite o nome do time"
+                           value={teamName}
+                           setter={(teamName) => setTeamName(teamName)}
+                           required={true} />
+                <TextField label="Cor"
+                           id="color"
+                           name="color"
+                           placeholder="Digite a cor do time"
+                           value={teamColor}
+                           setter={(teamColor) => setTeamColor(teamColor)}
+                           required={true} />
+                <CustomButton>Criar time</CustomButton>
             </form>
         </section>
     );
