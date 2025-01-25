@@ -67,6 +67,15 @@ function App() {
         }));
     }
 
+    function toggleFavorite(id) {
+        setMembers(members.map((member) => {
+            if (member.id === id) {
+                member.favorite = !member.favorite;
+            }
+            return member;
+        }))
+    }
+
     return (
         <div className="App">
             <Banner />
@@ -81,6 +90,7 @@ function App() {
                                         color={team.color}
                                         members={members.filter((member) => member.team === team.name)}
                                         onDeleteMember={deleteMember}
+                                        toggleFavorite={toggleFavorite}
                                         changeColor={setTeamColor} />))}
 
             <CustomFooter />

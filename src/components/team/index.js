@@ -23,8 +23,10 @@ const Team = (props) => {
                                 role={member.role}
                                 image={member.image}
                                 team={member.team}
+                                favorite={member.favorite}
                                 bgcolor={props.color}
-                                onDeleteMember={props.onDeleteMember} />
+                                onDeleteMember={props.onDeleteMember}
+                                toggleFavorite={props.toggleFavorite} />
                     );
                 })}
             </div>
